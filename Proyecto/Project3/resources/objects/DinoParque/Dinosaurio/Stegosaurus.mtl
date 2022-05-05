@@ -1,0 +1,162 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 26.02.2021 18:10:09
+
+newmtl skin
+	Ns 0.000000
+	Ni 1.500000
+	d 1.000000
+	Tr 0.000000
+	Tf 1.000000 1.000000 1.000000 
+	illum 2
+	Ka 0.000000 0.000000 0.000000
+	Kd 0.937255 0.937255 0.937255
+	Ks 0.000000 0.000000 0.000000
+	Ke 0.000000 0.000000 0.000000
+	map_Ka D:\computadora\Compu Gráfica\Proyecto_Final\Project3\Project3\resources\objects\DinoParque\Dinosaurio\tex\skinyel.jpg
+	map_Kd D:\computadora\Compu Gráfica\Proyecto_Final\Project3\Project3\resources\objects\DinoParque\Dinosaurio\tex\skinyel.jpg
+	map_bump D:\computadora\Compu Gráfica\Proyecto_Final\Project3\Project3\resources\objects\DinoParque\Dinosaurio\tex\skinbu.jpg
+	bump D:\computadora\Compu Gráfica\Proyecto_Final\Project3\Project3\resources\objects\DinoParque\Dinosaurio\tex\skinbu.jpg
+
+newmtl rightplates
+	Ns 0.000000
+	Ni 1.500000
+	d 1.000000
+	Tr 0.000000
+	Tf 1.000000 1.000000 1.000000 
+	illum 2
+	Ka 0.000000 0.000000 0.000000
+	Kd 0.556863 0.556863 0.556863
+	Ks 0.000000 0.000000 0.000000
+	Ke 0.000000 0.000000 0.000000
+	map_Ka D:\computadora\Compu Gráfica\Proyecto_Final\Project3\Project3\resources\objects\DinoParque\Dinosaurio\tex\rightplatesyel.jpg
+	map_Kd D:\computadora\Compu Gráfica\Proyecto_Final\Project3\Project3\resources\objects\DinoParque\Dinosaurio\tex\rightplatesyel.jpg
+	map_bump D:\computadora\Compu Gráfica\Proyecto_Final\Project3\Project3\resources\objects\DinoParque\Dinosaurio\tex\rpv3bu.jpg
+	bump D:\computadora\Compu Gráfica\Proyecto_Final\Project3\Project3\resources\objects\DinoParque\Dinosaurio\tex\rpv3bu.jpg
+
+newmtl leftplates
+	Ns 0.000000
+	Ni 1.500000
+	d 1.000000
+	Tr 0.000000
+	Tf 1.000000 1.000000 1.000000 
+	illum 2
+	Ka 0.000000 0.000000 0.000000
+	Kd 0.556863 0.556863 0.556863
+	Ks 0.000000 0.000000 0.000000
+	Ke 0.000000 0.000000 0.000000
+	map_Ka D:\computadora\Compu Gráfica\Proyecto_Final\Project3\Project3\resources\objects\DinoParque\Dinosaurio\tex\leftplatesyel.jpg
+	map_Kd D:\computadora\Compu Gráfica\Proyecto_Final\Project3\Project3\resources\objects\DinoParque\Dinosaurio\tex\leftplatesyel.jpg
+	map_bump D:\computadora\Compu Gráfica\Proyecto_Final\Project3\Project3\resources\objects\DinoParque\Dinosaurio\tex\lpv3bu.jpg
+	bump D:\computadora\Compu Gráfica\Proyecto_Final\Project3\Project3\resources\objects\DinoParque\Dinosaurio\tex\lpv3bu.jpg
+
+newmtl innermouth
+	Ns 0.000000
+	Ni 1.500000
+	d 1.000000
+	Tr 0.000000
+	Tf 1.000000 1.000000 1.000000 
+	illum 2
+	Ka 0.000000 0.000000 0.000000
+	Kd 0.874510 0.874510 0.874510
+	Ks 0.000000 0.000000 0.000000
+	Ke 0.000000 0.000000 0.000000
+	map_Ka D:\computadora\Compu Gráfica\Proyecto_Final\Project3\Project3\resources\objects\DinoParque\Dinosaurio\tex\inmouth.jpg
+	map_Kd D:\computadora\Compu Gráfica\Proyecto_Final\Project3\Project3\resources\objects\DinoParque\Dinosaurio\tex\inmouth.jpg
+
+newmtl eyeball
+	Ns 50.000000
+	Ni 1.500000
+	d 1.000000
+	Tr 0.000000
+	Tf 1.000000 1.000000 1.000000 
+	illum 2
+	Ka 0.000000 0.000000 0.000000
+	Kd 0.937255 0.937255 0.937255
+	Ks 0.387097 1.000000 0.129032
+	Ke 0.000000 0.000000 0.000000
+	map_Ka D:\computadora\Compu Gráfica\Proyecto_Final\Project3\Project3\resources\objects\DinoParque\Dinosaurio\tex\eyeout.jpg
+	map_Kd D:\computadora\Compu Gráfica\Proyecto_Final\Project3\Project3\resources\objects\DinoParque\Dinosaurio\tex\eyeout.jpg
+
+newmtl lacrinal
+	Ns 0.000000
+	Ni 1.500000
+	d 1.000000
+	Tr 0.000000
+	Tf 1.000000 1.000000 1.000000 
+	illum 2
+	Ka 0.000000 0.000000 0.000000
+	Kd 0.937255 0.937255 0.937255
+	Ks 0.000000 0.000000 0.000000
+	Ke 0.000000 0.000000 0.000000
+	map_Ka D:\computadora\Compu Gráfica\Proyecto_Final\Project3\Project3\resources\objects\DinoParque\Dinosaurio\tex\lacrinal.jpg
+	map_Kd D:\computadora\Compu Gráfica\Proyecto_Final\Project3\Project3\resources\objects\DinoParque\Dinosaurio\tex\lacrinal.jpg
+
+newmtl eyeballouter
+	Ns 51.000004
+	Ni 1.500000
+	d 1.000000
+	Tr 0.000000
+	Tf 1.000000 1.000000 1.000000 
+	illum 2
+	Ka 0.000000 0.000000 0.000000
+	Kd 0.937255 0.937255 0.937255
+	Ks 1.000000 1.000000 1.000000
+	Ke 0.000000 0.000000 0.000000
+	map_Ka D:\computadora\Compu Gráfica\Proyecto_Final\Project3\Project3\resources\objects\DinoParque\Dinosaurio\tex\eyeout.jpg
+	map_Kd D:\computadora\Compu Gráfica\Proyecto_Final\Project3\Project3\resources\objects\DinoParque\Dinosaurio\tex\eyeout.jpg
+
+newmtl tongue
+	Ns 0.000000
+	Ni 1.500000
+	d 1.000000
+	Tr 0.000000
+	Tf 1.000000 1.000000 1.000000 
+	illum 2
+	Ka 0.000000 0.000000 0.000000
+	Kd 0.874510 0.874510 0.874510
+	Ks 0.000000 0.000000 0.000000
+	Ke 0.000000 0.000000 0.000000
+	map_Ka D:\computadora\Compu Gráfica\Proyecto_Final\Project3\Project3\resources\objects\DinoParque\Dinosaurio\tex\tongue.jpg
+	map_Kd D:\computadora\Compu Gráfica\Proyecto_Final\Project3\Project3\resources\objects\DinoParque\Dinosaurio\tex\tongue.jpg
+
+newmtl frontnails
+	Ns 0.000000
+	Ni 1.500000
+	d 1.000000
+	Tr 0.000000
+	Tf 1.000000 1.000000 1.000000 
+	illum 2
+	Ka 0.000000 0.000000 0.000000
+	Kd 1.000000 1.000000 1.000000
+	Ks 0.000000 0.000000 0.000000
+	Ke 0.000000 0.000000 0.000000
+	map_Ka D:\computadora\Compu Gráfica\Proyecto_Final\Project3\Project3\resources\objects\DinoParque\Dinosaurio\tex\frontnails.jpg
+	map_Kd D:\computadora\Compu Gráfica\Proyecto_Final\Project3\Project3\resources\objects\DinoParque\Dinosaurio\tex\frontnails.jpg
+
+newmtl tailspikes
+	Ns 0.000000
+	Ni 1.500000
+	d 1.000000
+	Tr 0.000000
+	Tf 1.000000 1.000000 1.000000 
+	illum 2
+	Ka 0.000000 0.000000 0.000000
+	Kd 0.874510 0.874510 0.874510
+	Ks 0.000000 0.000000 0.000000
+	Ke 0.000000 0.000000 0.000000
+	map_Ka D:\computadora\Compu Gráfica\Proyecto_Final\Project3\Project3\resources\objects\DinoParque\Dinosaurio\tex\tailspikes.jpg
+	map_Kd D:\computadora\Compu Gráfica\Proyecto_Final\Project3\Project3\resources\objects\DinoParque\Dinosaurio\tex\tailspikes.jpg
+
+newmtl rearnails
+	Ns 0.000000
+	Ni 1.500000
+	d 1.000000
+	Tr 0.000000
+	Tf 1.000000 1.000000 1.000000 
+	illum 2
+	Ka 0.000000 0.000000 0.000000
+	Kd 1.000000 1.000000 1.000000
+	Ks 0.000000 0.000000 0.000000
+	Ke 0.000000 0.000000 0.000000
+	map_Ka D:\computadora\Compu Gráfica\Proyecto_Final\Project3\Project3\resources\objects\DinoParque\Dinosaurio\tex\rearnails.jpg
+	map_Kd D:\computadora\Compu Gráfica\Proyecto_Final\Project3\Project3\resources\objects\DinoParque\Dinosaurio\tex\rearnails.jpg
