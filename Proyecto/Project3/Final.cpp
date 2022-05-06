@@ -229,8 +229,10 @@ int main()
 	// load models
 	// -----------
 	//Model piso("resources/objects/piso/piso.obj");
-	Model isla("resources/objects/Isla/islaTrex.obj");
+	Model isla("resources/objects/Isla/isla.obj");
 	Model Silla("resources/objects/Silla/old_table.obj");
+	Model Raptor("resources/ObjectsRodrigo/Raptor/Raptor.obj");
+	
 	//Model Estatua("resources/objects/DinoParque/Dinosaurio/Stegosaurus.obj");
 	
 	//Inicialización de KeyFrames
@@ -337,6 +339,11 @@ int main()
 		model = glm::scale(model, glm::vec3(3.5f));
 		staticShader.setMat4("model", model);
 		Silla.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.00f, 0.0f, 0.0f));//Colocando Silla
+		model = glm::scale(model, glm::vec3(3.5f));
+		staticShader.setMat4("model", model);
+		Raptor.Draw(staticShader);
 		/*
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, -100.0f));//Colocando Dinosaurio
 		model = glm::scale(model, glm::vec3(0.5f));
