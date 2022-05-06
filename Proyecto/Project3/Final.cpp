@@ -232,6 +232,8 @@ int main()
 	Model isla("resources/objects/Isla/islaTrex.obj");
 	Model Silla("resources/objects/Silla/old_table.obj");
 	//Model Estatua("resources/objects/DinoParque/Dinosaurio/Stegosaurus.obj");
+	Model Arbol1("resources/objects/Arboles/Arbol1.obj");
+	Model Arbol2("resources/objects/Arboles/Arbol2.obj");
 	
 	//Inicialización de KeyFrames
 	for (int i = 0; i < MAX_FRAMES; i++)
@@ -333,10 +335,20 @@ int main()
 		isla.Draw(staticShader);
 
 		//DinoParque
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-250.0f, 0.0f, -400.0f));//Colocando Silla
-		model = glm::scale(model, glm::vec3(3.5f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(100.0f, 18.0f, -150.0f));//Colocando Silla
+		model = glm::scale(model, glm::vec3(1.5f));
 		staticShader.setMat4("model", model);
 		Silla.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(100.0f, 15.0f, -180.0f));//Colocando Arbol
+		model = glm::scale(model, glm::vec3(0.009f));
+		staticShader.setMat4("model", model);
+		Arbol1.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(100.0f, 15.0f, -100.0f));//Colocando Arbol
+		model = glm::scale(model, glm::vec3(0.009f));
+		staticShader.setMat4("model", model);
+		Arbol2.Draw(staticShader);
 		/*
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, -100.0f));//Colocando Dinosaurio
 		model = glm::scale(model, glm::vec3(0.5f));
