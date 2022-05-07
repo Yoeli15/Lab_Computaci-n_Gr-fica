@@ -335,17 +335,17 @@ int main()
 		isla.Draw(staticShader);
 
 		//DinoParque
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(100.0f, 18.0f, -150.0f));//Colocando Silla
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(100.0f, 5.0f, -150.0f));//Colocando Silla
 		model = glm::scale(model, glm::vec3(1.5f));
 		staticShader.setMat4("model", model);
 		Silla.Draw(staticShader);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(100.0f, 15.0f, -180.0f));//Colocando Arbol
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(100.0f, 0.0f, -180.0f));//Colocando Arbol
 		model = glm::scale(model, glm::vec3(0.009f));
 		staticShader.setMat4("model", model);
 		Arbol1.Draw(staticShader);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(100.0f, 15.0f, -100.0f));//Colocando Arbol
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(100.0f, 0.0f, -100.0f));//Colocando Arbol
 		model = glm::scale(model, glm::vec3(0.009f));
 		staticShader.setMat4("model", model);
 		Arbol2.Draw(staticShader);
