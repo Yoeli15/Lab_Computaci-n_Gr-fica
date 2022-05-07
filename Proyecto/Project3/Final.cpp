@@ -229,7 +229,7 @@ int main()
 	// load models
 	// -----------
 	//Model piso("resources/objects/piso/piso.obj");
-	Model isla("resources/objects/Isla/islaTrex.obj");
+	Model isla("resources/objects/Isla/isla.obj");
 	Model Silla("resources/objects/Silla/old_table.obj");
 	//Model Estatua("resources/objects/DinoParque/Dinosaurio/Stegosaurus.obj");
 	Model Arbol1("resources/objects/Arboles/Arbol1.obj");
