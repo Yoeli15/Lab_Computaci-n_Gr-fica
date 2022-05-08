@@ -66,7 +66,11 @@ float	posX = 0.0f,
 
 		incX = 0.0f,
 		incY = 0.0f,
-		incZ = 0.0f;
+		incZ = 0.0f,
+		
+		rot1 = 90.0f,
+		rot2 = 60.0f,
+		rot3 = 30.0f;
 
 #define MAX_FRAMES 9
 int i_max_steps = 60;
@@ -335,20 +339,45 @@ int main()
 		isla.Draw(staticShader);
 
 		//DinoParque
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(100.0f, 5.0f, -150.0f));//Colocando Silla
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(150.0f, 2.5f, -260.0f));//Colocando Silla
+		model = glm::rotate(model, glm::radians(rot1), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(1.5f));
 		staticShader.setMat4("model", model);
 		Silla.Draw(staticShader);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(100.0f, 0.0f, -180.0f));//Colocando Arbol
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(190.0f, 2.5f, -250.0f));//Colocando Silla
+		model = glm::rotate(model, glm::radians(rot2), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.5f));
+		staticShader.setMat4("model", model);
+		Silla.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(200.0f, 0.0f, -250.0f));//Colocando Arbol
 		model = glm::scale(model, glm::vec3(0.009f));
 		staticShader.setMat4("model", model);
 		Arbol1.Draw(staticShader);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(100.0f, 0.0f, -100.0f));//Colocando Arbol
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(215.0f, 2.5f, -205.0f));//Colocando Silla
+		model = glm::rotate(model, glm::radians(rot3), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.5f));
+		staticShader.setMat4("model", model);
+		Silla.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(225.0f, 0.0f, -190.0f));//Colocando Arbol
 		model = glm::scale(model, glm::vec3(0.009f));
 		staticShader.setMat4("model", model);
 		Arbol2.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(150.0f, 2.5f, -140.0f));//Colocando Silla
+		model = glm::rotate(model, glm::radians(rot1), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.5f));
+		staticShader.setMat4("model", model);
+		Silla.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(210.0f, 2.5f, -140.0f));//Colocando Silla
+		model = glm::rotate(model, glm::radians(rot1), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.5f));
+		staticShader.setMat4("model", model);
+		Silla.Draw(staticShader);
 		/*
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, -100.0f));//Colocando Dinosaurio
 		model = glm::scale(model, glm::vec3(0.5f));
