@@ -232,6 +232,8 @@ int main()
 	Model isla("resources/objects/Isla/isla.obj");
 	Model Silla("resources/objects/Silla/old_table.obj");
 	Model Raptor("resources/ObjectsRodrigo/Raptor/Raptor.obj");
+	Model Roca("resources/ObjectsRodrigo/Arboles/LowPolyTree.obj");
+	Model Edificio1("resources/ObjectsRodrigo/Edificios/Edif1.obj");
 	
 	//Model Estatua("resources/objects/DinoParque/Dinosaurio/Stegosaurus.obj");
 	
@@ -335,6 +337,7 @@ int main()
 		isla.Draw(staticShader);
 
 		//DinoParque
+		/*
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(-250.0f, 0.0f, -400.0f));//Colocando Silla
 		model = glm::scale(model, glm::vec3(3.5f));
 		staticShader.setMat4("model", model);
@@ -344,6 +347,11 @@ int main()
 		model = glm::scale(model, glm::vec3(3.5f));
 		staticShader.setMat4("model", model);
 		Raptor.Draw(staticShader);
+		*/
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.00f, 0.0f, 0.0f));//Colocando Silla
+		model = glm::scale(model, glm::vec3(1.0f));
+		staticShader.setMat4("model", model);
+		Edificio1.Draw(staticShader);
 		/*
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, -100.0f));//Colocando Dinosaurio
 		model = glm::scale(model, glm::vec3(0.5f));
