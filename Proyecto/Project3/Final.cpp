@@ -68,7 +68,7 @@ float	posX = 0.0f,
 		incY = 0.0f,
 		incZ = 0.0f,
 		
-		rot1 = 90.0f,
+		rot1 = 0.0f,
 		rot2 = -90.0f,
 		rot3 = 180.0f;
 
@@ -240,6 +240,9 @@ int main()
 	Model Arbol2("resources/objects/Arboles/Arbol2.obj");
 	Model Cerca("resources/objects/Cerca/3d-model.obj");
 	Model Entrada("resources/objects/Entrada/3d-model.obj");
+	Model Lampara("resources/objects/Lamparas/Faros/streetlight.obj");
+	//Model Mesa("resources/objects/Mesa/MesaPicnic.obj");
+
 	
 	//Inicialización de KeyFrames
 	for (int i = 0; i < MAX_FRAMES; i++)
@@ -341,98 +344,142 @@ int main()
 		isla.Draw(staticShader);
 
 		//DinoParque		
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(500.0f, 0.0f, -1210.0f));//Colocando Cerca
-		model = glm::rotate(model, glm::radians(rot1), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(500.0f, -0.5f, -1170.0f));//Colocando Cerca
+		model = glm::rotate(model, glm::radians(rot1+70.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.5f));
 		staticShader.setMat4("model", model);
 		Cerca.Draw(staticShader);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(500.0f, 1.0f, -1140.0f));//Colocando Cerca
-		model = glm::rotate(model, glm::radians(rot1), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(475.0f, -0.5f, -1100.0f));//Colocando Cerca
+		model = glm::rotate(model, glm::radians(rot1+70.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.5f));
 		staticShader.setMat4("model", model);
 		Cerca.Draw(staticShader);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(500.0f, 0.0f, -940.0f));//Colocando Entrada
-		model = glm::rotate(model, glm::radians(rot1), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(450.0f, -0.5f, -1030.0f));//Colocando Cerca
+		model = glm::rotate(model, glm::radians(rot1 + 70.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		staticShader.setMat4("model", model);
+		Cerca.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(423.0f, 0.0f, -967.5f));//Colocando Entrada
+		model = glm::rotate(model, glm::radians(rot1+60.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.07f));
 		staticShader.setMat4("model", model);
 		Entrada.Draw(staticShader);		
 		
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(500.0f, 0.0f, -800.0f));//Colocando Cerca
-		model = glm::rotate(model, glm::radians(rot1), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(396.0f, -0.5f, -902.0f));//Colocando Cerca
+		model = glm::rotate(model, glm::radians(rot1+70.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.5f));
 		staticShader.setMat4("model", model);
 		Cerca.Draw(staticShader);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(500.0f, 0.0f, -600.0f));//Colocando Cerca
-		model = glm::rotate(model, glm::radians(rot1), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(371.0f, -0.5f, -832.0f));//Colocando Cerca
+		model = glm::rotate(model, glm::radians(rot1+70.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.5f));
 		staticShader.setMat4("model", model);
 		Cerca.Draw(staticShader);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(600.0f, 3.0f, -1060.0f));//Colocando Silla
-		model = glm::rotate(model, glm::radians(rot1), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(346.0f, -0.5f, -762.0f));//Colocando Cerca
+		model = glm::rotate(model, glm::radians(rot1+70.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		staticShader.setMat4("model", model);
+		Cerca.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(321.0f, -0.5f, -692.0f));//Colocando Cerca
+		model = glm::rotate(model, glm::radians(rot1 + 70.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		staticShader.setMat4("model", model);
+		Cerca.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(600.0f, 3.3f, -1060.0f));//Colocando Silla
+		model = glm::rotate(model, glm::radians(rot1+90), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(3.0f));
 		staticShader.setMat4("model", model);
 		Banco1.Draw(staticShader);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(760.0f, 3.0f, -1020.0f));//Colocando Silla
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(650.0f, 3.3f, -1060.0f));//Colocando Silla
 		model = glm::rotate(model, glm::radians(rot2), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(3.0f));
 		staticShader.setMat4("model", model);
 		Banco1.Draw(staticShader);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(800.0f, 0.0f, -1000.0f));//Colocando Arbol
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(700.0f, 0.0f, -1050.0f));//Colocando Arbol
 		model = glm::scale(model, glm::vec3(0.02f));
 		staticShader.setMat4("model", model);
 		Arbol1.Draw(staticShader);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(860.0f, -1.0f, -900.0f));//Colocando Silla
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(700.0f, 0.0f, -1000.0f));//Colocando Lámpara
+		model = glm::scale(model, glm::vec3(20.0f));
+		staticShader.setMat4("model", model);
+		Lampara.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(740.0f, -1.0f, -900.0f));//Colocando Silla
 		model = glm::rotate(model, glm::radians(rot2), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.07f));
 		staticShader.setMat4("model", model);
 		Banco4.Draw(staticShader);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(800.0f, 0.0f, -760.0f));//Colocando Arbol
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(700.0f, 0.0f, -760.0f));//Colocando Arbol
 		model = glm::scale(model, glm::vec3(0.02f));
 		staticShader.setMat4("model", model);
 		Arbol2.Draw(staticShader);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(900.0f, 0.0f, -1100.0f));//Colocando Cerca
-		model = glm::rotate(model, glm::radians(rot1), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(750.0f, -0.5f, -1015.0f));//Colocando Cerca
+		model = glm::rotate(model, glm::radians(rot1+90), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.5f));
 		staticShader.setMat4("model", model);
 		Cerca.Draw(staticShader);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(900.0f, 1.0f, -1040.0f));//Colocando Cerca
-		model = glm::rotate(model, glm::radians(rot1), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(750.0f, -0.5f, -941.0f));//Colocando Cerca
+		model = glm::rotate(model, glm::radians(rot1+90), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.5f));
 		staticShader.setMat4("model", model);
 		Cerca.Draw(staticShader);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(600.0f, 3.0f, -560.0f));//Colocando Silla
-		model = glm::rotate(model, glm::radians(rot1), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(750.0f, -0.5f, -867.0f));//Colocando Cerca
+		model = glm::rotate(model, glm::radians(rot1 + 90), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		staticShader.setMat4("model", model);
+		Cerca.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(750.0f, -0.5f, -643.0f));//Colocando Cerca
+		model = glm::rotate(model, glm::radians(rot1 + 90), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		staticShader.setMat4("model", model);
+		Cerca.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(750.0f, -0.5f, -569.0f));//Colocando Cerca
+		model = glm::rotate(model, glm::radians(rot1+90), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		staticShader.setMat4("model", model);
+		Cerca.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(750.0f, -0.5f, -495.0f));//Colocando Cerca
+		model = glm::rotate(model, glm::radians(rot1 + 90), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		staticShader.setMat4("model", model);
+		Cerca.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(700.0f, 0.0f, -560.0f));//Colocando Lámpara
+		model = glm::scale(model, glm::vec3(20.0f));
+		staticShader.setMat4("model", model);
+		Lampara.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(700.0f, 3.0f, -540.0f));//Colocando Silla
+		model = glm::rotate(model, glm::radians(rot1+90), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(3.0f));
 		staticShader.setMat4("model", model);
 		Banco1.Draw(staticShader);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(540.0f, -1.0f, -560.0f));//Colocando Silla
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(540.0f, -1.0f, -540.0f));//Colocando Silla
 		model = glm::rotate(model, glm::radians(rot3), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.07f));
 		staticShader.setMat4("model", model);
 		Banco4.Draw(staticShader);
+
 		
-		// -------------------------------------------------------------------------------------------------------------------------
-		// Caja Transparente --- Siguiente Práctica
-		// -------------------------------------------------------------------------------------------------------------------------
-		/*glEnable(GL_BLEND);
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -70.0f));
-		model = glm::scale(model, glm::vec3(5.0f));
-		staticShader.setMat4("model", model);
-		cubo.Draw(staticShader);
-		glEnable(GL_BLEND);*/
+		
 		// -------------------------------------------------------------------------------------------------------------------------
 		// Termina Escenario
 		// -------------------------------------------------------------------------------------------------------------------------
