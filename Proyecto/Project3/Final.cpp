@@ -69,8 +69,7 @@ float	posX = 0.0f,
 		incZ = 0.0f,
 		
 		rot1 = 0.0f,
-		rot2 = -90.0f,
-		rot3 = 180.0f;
+		rot2 = -90.0f;
 
 #define MAX_FRAMES 9
 int i_max_steps = 60;
@@ -239,11 +238,13 @@ int main()
 	Model Arbol1("resources/objects/Arboles/Arbol1.obj");
 	Model Arbol2("resources/objects/Arboles/Arbol2.obj");
 	Model Cerca("resources/objects/Cerca/Cerca.obj");
-	Model Entrada("resources/objects/Entrada/3d-model.obj");
-	Model Lampara("resources/objects/Lamparas/Faros/Lampara.obj");
-	Model Kiosko("resources/objects/Kiosko/kiosko.obj");
+	Model Entrada("resources/objects/Entrada/Entrada.obj");
+	Model Lampara("resources/objects/Lamparas/Lampara.obj");
+	Model Kiosko("resources/objects/Kiosko/Prueba.obj");
 	Model Mesa("resources/objects/Mesa/Mesa.obj");
-	Model Resbaladilla("resources/objects/Resbaladilla/Slide.obj");
+	Model Resbaladilla("resources/objects/Resbaladilla/Resbaladilla.obj");
+	Model Dinosaurio("resources/objects/Dinosaurios/Triceratop/TriceratopMejora.obj");
+	Model Helados("resources/objects/CarroHelados/carrito_helado.obj");
 
 	
 	//Inicialización de KeyFrames
@@ -345,7 +346,8 @@ int main()
 		staticShader.setMat4("model", model);
 		isla.Draw(staticShader);
 
-		//DinoParque		
+		//DINOPARQUE
+
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(500.0f, -0.5f, -1170.0f));//Colocando Cerca
 		model = glm::rotate(model, glm::radians(rot1+70.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(5.5f));
@@ -368,7 +370,23 @@ int main()
 		model = glm::rotate(model, glm::radians(rot1+60.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.07f));
 		staticShader.setMat4("model", model);
-		Entrada.Draw(staticShader);		
+		Entrada.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(350.0f, 0.0f, -870.0f));//Colocando Lámpara
+		model = glm::scale(model, glm::vec3(8.0f));
+		staticShader.setMat4("model", model);
+		Lampara.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(410.0f, 0.0f, -1070.0f));//Colocando Lámpara
+		model = glm::scale(model, glm::vec3(8.0f));
+		staticShader.setMat4("model", model);
+		Lampara.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(490.0f, -1.0f, -930.0f));//Colocando Dinosaurio
+		model = glm::rotate(model, glm::radians(rot1-20), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		staticShader.setMat4("model", model);
+		Dinosaurio.Draw(staticShader);
 		
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(396.0f, -0.5f, -902.0f));//Colocando Cerca
 		model = glm::rotate(model, glm::radians(rot1+70.0f), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -393,6 +411,11 @@ int main()
 		model = glm::scale(model, glm::vec3(5.5f));
 		staticShader.setMat4("model", model);
 		Cerca.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(550.0f, -0.5f, -980.0f));//Colocando Resbaladilla
+		model = glm::scale(model, glm::vec3(0.2f));
+		staticShader.setMat4("model", model);
+		Resbaladilla.Draw(staticShader);
 
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(600.0f, 3.3f, -1060.0f));//Colocando Silla
 		model = glm::rotate(model, glm::radians(rot1+90), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -422,9 +445,9 @@ int main()
 		staticShader.setMat4("model", model);
 		Lampara.Draw(staticShader);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(740.0f, -1.0f, -900.0f));//Colocando Silla
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(740.0f, -1.0f, -950.0f));//Colocando Silla
 		model = glm::rotate(model, glm::radians(rot2), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.07f));
+		model = glm::scale(model, glm::vec3(0.1f));
 		staticShader.setMat4("model", model);
 		Banco4.Draw(staticShader);
 
@@ -432,6 +455,12 @@ int main()
 		model = glm::scale(model, glm::vec3(0.02f));
 		staticShader.setMat4("model", model);
 		Arbol2.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(650.0f, -1.0f, -750.0f));//Colocando Mesapicnic
+		model = glm::rotate(model, glm::radians(rot1), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.15f));
+		staticShader.setMat4("model", model);
+		Mesa.Draw(staticShader);
 
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(750.0f, -0.5f, -1015.0f));//Colocando Cerca
 		model = glm::rotate(model, glm::radians(rot1+90), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -480,15 +509,15 @@ int main()
 		staticShader.setMat4("model", model);
 		Banco1.Draw(staticShader);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(540.0f, -1.0f, -540.0f));//Colocando Silla
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(500.0f, -1.0f, -540.0f));//Colocando Silla
 		model = glm::rotate(model, glm::radians(rot1+180), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.09f));
+		model = glm::scale(model, glm::vec3(0.1f));
 		staticShader.setMat4("model", model);
 		Banco4.Draw(staticShader);
 
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(580.0f, -1.0f, -840.0f));//Colocando Kiosko
 		model = glm::rotate(model, glm::radians(rot1 + 180), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.1f));
+		model = glm::scale(model, glm::vec3(0.2f));
 		staticShader.setMat4("model", model);
 		Kiosko.Draw(staticShader);
 
@@ -498,11 +527,17 @@ int main()
 		staticShader.setMat4("model", model);
 		Mesa.Draw(staticShader);
 
-		/*model = glm::translate(glm::mat4(1.0f), glm::vec3(400.0f, -1.0f, -800.0f));//Colocando Mesapicnic
-		model = glm::rotate(model, glm::radians(rot3), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(0.1f));
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(430.0f, -0.5f, -800.0f));//Colocando Resbaladilla
+		model = glm::rotate(model, glm::radians(rot1+70), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.2f));
 		staticShader.setMat4("model", model);
-		Resbaladilla.Draw(staticShader);*/
+		Resbaladilla.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(400.0f, 0.0f, -700.0f));//Colocando Carrito
+		//model = glm::rotate(model, glm::radians(rot1 + 70), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.5f));
+		staticShader.setMat4("model", model);
+		Helados.Draw(staticShader);
 		
 		// -------------------------------------------------------------------------------------------------------------------------
 		// Termina Escenario
