@@ -21,6 +21,9 @@
     <None Include="shaders\shader_projection.vs">
       <Filter>Archivos de recursos</Filter>
     </None>
+    <None Include="..\..\.gitignore">
+      <Filter>Archivos de origen</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Final.cpp">

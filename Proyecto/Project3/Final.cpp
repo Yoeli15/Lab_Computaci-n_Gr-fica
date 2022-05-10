@@ -230,10 +230,22 @@ int main()
 	// -----------
 	//Model piso("resources/objects/piso/piso.obj");
 	Model isla("resources/objects/Isla/isla.obj");
+	Model cubo("resources/objects/cubo.obj");
 	Model Silla("resources/objects/Silla/old_table.obj");
 	Model Raptor("resources/ObjectsRodrigo/Raptor/Raptor.obj");
 	Model Roca("resources/ObjectsRodrigo/Arboles/LowPolyTree.obj");
 	Model Edificio1("resources/ObjectsRodrigo/Edificios/Edif1.obj");
+	Model Curva("resources/ObjectsRodrigo/Caminos/Curva.obj");
+	
+	
+	Model RaptorCuerpo("resources/ObjectsRodrigo/Raptor/Cuerpo.obj");
+	Model RaptorCola("resources/ObjectsRodrigo/Raptor/Cola.obj");
+	Model RaptorCabeza("resources/ObjectsRodrigo/Raptor/Cabeza.obj");
+	Model RaptorMandibula("resources/ObjectsRodrigo/Raptor/Mandibula.obj");
+	Model RaptorBrazoIzq("resources/ObjectsRodrigo/Raptor/BrazoIzq.obj");
+	Model RaptorBrazoDer("resources/ObjectsRodrigo/Raptor/BrazoDer.obj");
+	Model RaptorPataIzq("resources/ObjectsRodrigo/Raptor/PataIzq.obj");
+	Model RaptorPataDer("resources/ObjectsRodrigo/Raptor/PataDer.obj");
 	
 	//Model Estatua("resources/objects/DinoParque/Dinosaurio/Stegosaurus.obj");
 	
@@ -334,7 +346,7 @@ int main()
 		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(5.0f));
 		staticShader.setMat4("model", model);
-		isla.Draw(staticShader);
+		//isla.Draw(staticShader);
 
 		//DinoParque
 		/*
@@ -342,16 +354,69 @@ int main()
 		model = glm::scale(model, glm::vec3(3.5f));
 		staticShader.setMat4("model", model);
 		Silla.Draw(staticShader);
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.00f, 0.0f, 0.0f));//Colocando Silla
-		model = glm::scale(model, glm::vec3(3.5f));
-		staticShader.setMat4("model", model);
-		Raptor.Draw(staticShader);
 		*/
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.00f, 0.0f, 0.0f));//Colocando Silla
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(10.00f, 0.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		cubo.Draw(staticShader);
+		
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(00.00f, 10.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(1.0f));
 		staticShader.setMat4("model", model);
-		Edificio1.Draw(staticShader);
+		cubo.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.00f, 0.0f, 10.0f));
+		model = glm::scale(model, glm::vec3(1.0f));
+		staticShader.setMat4("model", model);
+		Curva.Draw(staticShader);
+		
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.00f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f));
+		staticShader.setMat4("model", model);
+		RaptorCuerpo.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.00f, 1.42f, 0.640f));
+		model = glm::scale(model, glm::vec3(1.0f));
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		staticShader.setMat4("model", model);
+		RaptorCabeza.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.00f, 1.420f,0.810f ));//Colocando Silla
+		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f));
+		staticShader.setMat4("model", model);
+		RaptorMandibula.Draw(staticShader);
+
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.050f, 1.0f, 0.50f));//Colocando Silla
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f));
+		staticShader.setMat4("model", model);
+		RaptorBrazoIzq.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-0.05f, 1.0f , 0.5f));//Colocando Silla
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f));
+		staticShader.setMat4("model", model);
+		RaptorBrazoDer.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.065f, 1.0f, 0.160f));//Colocando Silla
+		//model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f));
+		staticShader.setMat4("model", model);
+		RaptorPataIzq.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(-0.065f,  1.0f, 0.160f));//Colocando Silla
+		//model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.0f));
+		staticShader.setMat4("model", model);
+		RaptorPataDer.Draw(staticShader);
+
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.00f, 1.0f, -0.420f));//Colocando Silla
+		model = glm::scale(model, glm::vec3(1.0f));
+		staticShader.setMat4("model", model);
+		RaptorCola.Draw(staticShader);
 		/*
 		model = glm::translate(glm::mat4(1.0f), glm::vec3(-150.0f, 0.0f, -100.0f));//Colocando Dinosaurio
 		model = glm::scale(model, glm::vec3(0.5f));
