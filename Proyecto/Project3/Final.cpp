@@ -59,6 +59,15 @@ double	deltaTime = 0.0f,
 glm::vec3 lightPosition(0.0f, 4.0f, -10.0f);
 glm::vec3 lightDirection(0.0f, -1.0f, -1.0f);
 
+//Posiciones
+bool	animacion = false;
+
+int		avanza = 0;
+
+float	movBarco_x = 0.0f,
+		movBarco_z = 0.0f,
+		orienta = 0.0f;//si se cambia el auto va a rotar o cambiar de posición, un ejemplo es ponerle 90.0
+
 //Keyframes (Manipulación y dibujo)
 float	posX = 0.0f,
 		posY = 0.0f,
@@ -145,6 +154,62 @@ void animate(void)
 			posZ += incZ;
 
 			i_curr_steps++;
+		}
+	}
+
+	//Barco
+	if(animacion){
+		switch (avanza) {
+			case 0:
+				if (movBarco_z <= 200.0f) {
+					movBarco_z += 3.0f;
+					//printf("%f", movBarco_z);
+				}
+				else
+					avanza = 1;
+				break;
+			case 1:
+				if (movBarco_x <= 900.00f){
+					orienta = 60.0f;
+					movBarco_x += 3.0f;
+				}
+				else
+					avanza = 2;
+				break;
+			case 2:
+				if (movBarco_z >= -2900.0f){
+					orienta = 150.0f;
+					movBarco_z -= 3.0f;
+				}
+				else
+					avanza = 3;
+				break;
+
+			case 3:
+				if (movBarco_x >= -980.0f){
+					orienta = -130.0f;
+					movBarco_x -= 3.0f;
+				}
+				else
+					avanza = 4;
+				break;
+			case 4:
+				if (movBarco_z <= -100.0f) {
+					orienta = 0.0f;
+					movBarco_z += 3.0f;
+				}
+				else
+					avanza = 5;
+				break;
+			case 5:
+				if (movBarco_x <= 50) {
+					orienta = 80.0f;
+					movBarco_x += 3.0f;
+				}
+				break;
+
+			default:
+				break;
 		}
 	}
 }
@@ -251,6 +316,8 @@ int main()
 	Model Maquina("resources/objects/Maquinas/Maquina.obj");
 	Model Pasamanos("resources/objects/Pasamanos/Prueba.obj");
 	Model SubeBaja("resources/objects/SubeBaja/SubeBaja.obj");
+	Model Barco("resources/objects/Barco/Mejora.obj");
+	Model Puerto("resources/objects/Puerto/Prueba2.obj");
 	
 	//Inicialización de KeyFrames
 	for (int i = 0; i < MAX_FRAMES; i++)
@@ -598,6 +665,19 @@ int main()
 		model = glm::scale(model, glm::vec3(0.5f));
 		staticShader.setMat4("model", model);
 		Helados.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(20.0f, -12.0f, 1160.0f));//Colocando Puerto
+		model = glm::rotate(model, glm::radians(rot1 - 70), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(1.2f));
+		staticShader.setMat4("model", model);
+		Puerto.Draw(staticShader);
+
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(150.0f+movBarco_x, -12.0f, 1490.0f + movBarco_z));//Colocando Barco
+		model = glm::rotate(model, glm::radians(rot1 + 60 + orienta), glm::vec3(0.0f, 1.0f, 0.0f));
+		//tmp = model = glm::rotate(model, glm::radians(orienta+90), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(0.3f));
+		staticShader.setMat4("model", model);
+		Barco.Draw(staticShader);
 		
 		// -------------------------------------------------------------------------------------------------------------------------
 		// Termina Escenario
@@ -685,6 +765,19 @@ void my_input(GLFWwindow *window, int key, int scancode, int action, int mode)
 		{
 			saveFrame();
 		}
+	}
+
+	//Animación Barco
+	if (key == GLFW_KEY_SPACE && action == GLFW_PRESS) {
+		animacion ^= true;//operación XOR, lo que tenga la variable le pondrá el valor contrario
+	}
+
+	if (key == GLFW_KEY_C && action == GLFW_PRESS) {
+		movBarco_x = 0.0f;
+		movBarco_z = 0.0f;
+		avanza = 0;
+		orienta = 0;
+		animacion = false;
 	}
 }
 
