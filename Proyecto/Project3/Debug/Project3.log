@@ -3,13 +3,14 @@ C:\Users\pecer\OneDrive\Documents\GitHub\Lab_Computaci-n_Gr-fica\Proyecto\Projec
 C:\Users\pecer\OneDrive\Documents\GitHub\Lab_Computaci-n_Gr-fica\Proyecto\Project3\include\modelAnim.h(104,44): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
 C:\Users\pecer\OneDrive\Documents\GitHub\Lab_Computaci-n_Gr-fica\Proyecto\Project3\include\modelAnim.h(520,24): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
 C:\Users\pecer\OneDrive\Documents\GitHub\Lab_Computaci-n_Gr-fica\Proyecto\Project3\Final.cpp(181,39): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\Users\pecer\OneDrive\Documents\GitHub\Lab_Computaci-n_Gr-fica\Proyecto\Project3\Final.cpp(894,11): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\pecer\OneDrive\Documents\GitHub\Lab_Computaci-n_Gr-fica\Proyecto\Project3\Final.cpp(895,11): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\pecer\OneDrive\Documents\GitHub\Lab_Computaci-n_Gr-fica\Proyecto\Project3\Final.cpp(899,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\pecer\OneDrive\Documents\GitHub\Lab_Computaci-n_Gr-fica\Proyecto\Project3\Final.cpp(900,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\pecer\OneDrive\Documents\GitHub\Lab_Computaci-n_Gr-fica\Proyecto\Project3\Final.cpp(902,10): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\pecer\OneDrive\Documents\GitHub\Lab_Computaci-n_Gr-fica\Proyecto\Project3\Final.cpp(903,10): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\pecer\OneDrive\Documents\GitHub\Lab_Computaci-n_Gr-fica\Proyecto\Project3\Final.cpp(911,28): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\pecer\OneDrive\Documents\GitHub\Lab_Computaci-n_Gr-fica\Proyecto\Project3\Final.cpp(917,11): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\pecer\OneDrive\Documents\GitHub\Lab_Computaci-n_Gr-fica\Proyecto\Project3\Final.cpp(918,11): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\pecer\OneDrive\Documents\GitHub\Lab_Computaci-n_Gr-fica\Proyecto\Project3\Final.cpp(922,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\pecer\OneDrive\Documents\GitHub\Lab_Computaci-n_Gr-fica\Proyecto\Project3\Final.cpp(923,16): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\pecer\OneDrive\Documents\GitHub\Lab_Computaci-n_Gr-fica\Proyecto\Project3\Final.cpp(925,10): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\pecer\OneDrive\Documents\GitHub\Lab_Computaci-n_Gr-fica\Proyecto\Project3\Final.cpp(926,10): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\pecer\OneDrive\Documents\GitHub\Lab_Computaci-n_Gr-fica\Proyecto\Project3\Final.cpp(934,28): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+  glad.c
 glfw3.lib(context.obj) : warning LNK4099: no se encontró PDB 'glfw.pdb' con 'glfw3.lib(context.obj)' o en 'C:\Users\pecer\OneDrive\Documents\GitHub\Lab_Computaci-n_Gr-fica\Proyecto\Debug\glfw.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
 glfw3.lib(init.obj) : warning LNK4099: no se encontró PDB 'glfw.pdb' con 'glfw3.lib(init.obj)' o en 'C:\Users\pecer\OneDrive\Documents\GitHub\Lab_Computaci-n_Gr-fica\Proyecto\Debug\glfw.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
 glfw3.lib(input.obj) : warning LNK4099: no se encontró PDB 'glfw.pdb' con 'glfw3.lib(input.obj)' o en 'C:\Users\pecer\OneDrive\Documents\GitHub\Lab_Computaci-n_Gr-fica\Proyecto\Debug\glfw.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
