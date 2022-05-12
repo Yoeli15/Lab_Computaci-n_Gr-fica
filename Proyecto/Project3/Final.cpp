@@ -570,8 +570,8 @@ void my_input(GLFWwindow *window, int key, int scancode, int action, int mode)
 		camera.ProcessKeyboard(LEFT, (float)deltaTime);
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
 		camera.ProcessKeyboard(RIGHT, (float)deltaTime);
-	//To Configure Model
-	if (glfwGetKey(window, GLFW_KEY_Y) == GLFW_PRESS)
+	//Configuración para hacer los keyframes
+	/*if (glfwGetKey(window, GLFW_KEY_Y) == GLFW_PRESS)
 		RaptorParam[RaptorRotCuerpoY]++;
 	if (glfwGetKey(window, GLFW_KEY_H) == GLFW_PRESS)
 		RaptorParam[RaptorRotCuerpoY]--;
@@ -602,7 +602,7 @@ void my_input(GLFWwindow *window, int key, int scancode, int action, int mode)
 	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
 		RaptorParam[RaptorRotColaX]++;
 	if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
-		RaptorParam[RaptorRotColaX]--;
+		RaptorParam[RaptorRotColaX]--;*/
 
 	//To play KeyFrame animation 
 	if (key == GLFW_KEY_P && action == GLFW_PRESS)
@@ -626,13 +626,13 @@ void my_input(GLFWwindow *window, int key, int scancode, int action, int mode)
 	}
 
 	//To Save a KeyFrame
-	if (key == GLFW_KEY_L && action == GLFW_PRESS)
+	/*if (key == GLFW_KEY_L && action == GLFW_PRESS)
 	{
 		if (FrameIndex < MAX_FRAMES)
 		{
 			saveFrame();
 		}
-	}
+	}*/
 }
 
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes
