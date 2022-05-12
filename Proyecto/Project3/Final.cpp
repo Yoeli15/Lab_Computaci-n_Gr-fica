@@ -68,6 +68,23 @@ float	posX = 0.0f,
 		incY = 0.0f,
 		incZ = 0.0f;
 
+//Este enum sirve para identificar en el arreglo de floats los parámetros del velociraptor;
+enum RaptorParams
+{
+	RaptorPistaRadio,
+	RaptorPistaAngulo,
+	RaptorRotCuerpoY,
+	RaptorRotCabeza,
+	RaptorRotMandibula,
+	RaptorRotBrazos,
+	RaptorRotPatas,
+	RaptorRotColaX,
+	RaptorRotColaY,
+	RaptorMaxParams
+};
+float RaptorParam[RaptorMaxParams] = { 0.0f };
+//Este arreglo sirve para poder alterar los valores de incrementos.
+float RaptorParamInc[RaptorMaxParams] = { 0.0f };
 #define MAX_FRAMES 9
 int i_max_steps = 60;
 int i_curr_steps = 0;
@@ -79,6 +96,7 @@ typedef struct _frame
 	float posZ;		//Variable para PosicionZ
 	float rotRodIzq;
 	float giroMonito;
+	float RaptorKFParams[RaptorMaxParams];
 
 }FRAME;
 
@@ -95,6 +113,11 @@ void saveFrame(void)
 	KeyFrame[FrameIndex].posX = posX;
 	KeyFrame[FrameIndex].posY = posY;
 	KeyFrame[FrameIndex].posZ = posZ;
+	for (size_t i = 0; i < RaptorMaxParams; i++)
+	{
+		KeyFrame[FrameIndex].RaptorKFParams[i] = RaptorParam[i];
+
+	}
 
 	FrameIndex++;
 }
@@ -104,6 +127,12 @@ void resetElements(void)
 	posX = KeyFrame[0].posX;
 	posY = KeyFrame[0].posY;
 	posZ = KeyFrame[0].posZ;
+
+	for (size_t i = 0; i < RaptorMaxParams; i++)
+	{
+		RaptorParam[i] = KeyFrame[0].RaptorKFParams[i];
+
+	}
 }
 
 void interpolation(void)
@@ -111,6 +140,11 @@ void interpolation(void)
 	incX = (KeyFrame[playIndex + 1].posX - KeyFrame[playIndex].posX) / i_max_steps;
 	incY = (KeyFrame[playIndex + 1].posY - KeyFrame[playIndex].posY) / i_max_steps;
 	incZ = (KeyFrame[playIndex + 1].posZ - KeyFrame[playIndex].posZ) / i_max_steps;
+	for (size_t i = 0; i < RaptorMaxParams; i++)
+	{
+		RaptorParamInc[i] = (KeyFrame[playIndex + 1].RaptorKFParams[i] - KeyFrame[playIndex].RaptorKFParams[i]) / i_max_steps;
+
+	}
 }
 
 void animate(void)
@@ -125,14 +159,13 @@ void animate(void)
 				std::cout << "Animation ended" << std::endl;
 				//printf("termina anim\n");
 				playIndex = 0;
-				play = false;
+				resetElements();
+				//play = false;
 			}
-			else //Next frame interpolations
-			{
-				i_curr_steps = 0; //Reset counter
-								  //Interpolation
-				interpolation();
-			}
+			i_curr_steps = 0; //Reset counter
+							  //Interpolation
+			interpolation();
+			
 		}
 		else
 		{
@@ -140,6 +173,11 @@ void animate(void)
 			posX += incX;
 			posY += incY;
 			posZ += incZ;
+			for (size_t i = 0; i < RaptorMaxParams; i++)
+			{
+				RaptorParam[i] += RaptorParamInc[i];
+			}
+
 
 			i_curr_steps++;
 		}
@@ -344,9 +382,9 @@ int main()
 
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(5.0f));
+		model = glm::scale(model, glm::vec3(20.0f));
 		staticShader.setMat4("model", model);
-		//isla.Draw(staticShader);
+		isla.Draw(staticShader);
 
 		//DinoParque
 		/*
@@ -364,57 +402,62 @@ int main()
 		staticShader.setMat4("model", model);
 		cubo.Draw(staticShader);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.00f, 0.0f, 10.0f));
+
+		/*----------------------------------------------------------------------------------
+		------------------------------------------------------------------------------------
+		---------CREANDO PISTA DE CARRERAS DE VELOCIRAPTORS---------------------------------
+		------------------------------------------------------------------------------------
+		----------------------------------------------------------------------------------*/
+		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.00f, 0.1f, 10.0f));
 		model = glm::scale(model, glm::vec3(1.0f));
 		staticShader.setMat4("model", model);
 		Curva.Draw(staticShader);
 		
-
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.00f, 0.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(1.0f));
+		model = glm::rotate(model, glm::radians(RaptorParam[RaptorPistaAngulo]), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(-64.5f+RaptorParam[RaptorPistaRadio], 0.1f, 0.0f));
+		model = glm::rotate(model, glm::radians(RaptorParam[RaptorRotCuerpoY]),glm::vec3(0.0f,1.0f,0.0f));
+		tmp = model;		
 		staticShader.setMat4("model", model);
 		RaptorCuerpo.Draw(staticShader);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.00f, 1.42f, 0.640f));
-		model = glm::scale(model, glm::vec3(1.0f));
-		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::translate(tmp, glm::vec3(0.00f, 1.42f, 0.640f));
+		model = glm::rotate(model, glm::radians(RaptorParam[RaptorRotCabeza]), glm::vec3(1.0f, 0.0f, 0.0f));
 		staticShader.setMat4("model", model);
 		RaptorCabeza.Draw(staticShader);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.00f, 1.420f,0.810f ));//Colocando Silla
-		model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(1.0f));
+		model = glm::translate(model, glm::vec3(0.00f, 00.0f,0.190f ));
+		model = glm::rotate(model, glm::radians(RaptorParam[RaptorRotMandibula]+30.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 		staticShader.setMat4("model", model);
 		RaptorMandibula.Draw(staticShader);
 
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.050f, 1.0f, 0.50f));//Colocando Silla
-		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::translate(tmp, glm::vec3(0.050f, 1.0f, 0.50f));
+		model = glm::rotate(model, glm::radians(-RaptorParam[RaptorRotBrazos]), glm::vec3(1.0f, 0.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(1.0f));
 		staticShader.setMat4("model", model);
 		RaptorBrazoIzq.Draw(staticShader);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-0.05f, 1.0f , 0.5f));//Colocando Silla
-		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::translate(tmp, glm::vec3(-0.05f, 1.0f , 0.5f));
+		model = glm::rotate(model, glm::radians(RaptorParam[RaptorRotBrazos]), glm::vec3(1.0f, 0.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(1.0f));
 		staticShader.setMat4("model", model);
 		RaptorBrazoDer.Draw(staticShader);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.065f, 1.0f, 0.160f));//Colocando Silla
-		//model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::translate(tmp, glm::vec3(0.065f, 1.0f, 0.160f));
+		model = glm::rotate(model, glm::radians(-RaptorParam[RaptorRotPatas]), glm::vec3(1.0f, 0.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(1.0f));
 		staticShader.setMat4("model", model);
 		RaptorPataIzq.Draw(staticShader);
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(-0.065f,  1.0f, 0.160f));//Colocando Silla
-		//model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(1.0f));
+		model = glm::translate(tmp, glm::vec3(-0.065f,  1.0f, 0.160f));
+		model = glm::rotate(model, glm::radians(RaptorParam[RaptorRotPatas]), glm::vec3(1.0f, 0.0f, 0.0f));
 		staticShader.setMat4("model", model);
 		RaptorPataDer.Draw(staticShader);
 
 
-		model = glm::translate(glm::mat4(1.0f), glm::vec3(0.00f, 1.0f, -0.420f));//Colocando Silla
-		model = glm::scale(model, glm::vec3(1.0f));
+		model = glm::translate(tmp, glm::vec3(0.00f, 1.0f, -0.420f));
+		model = glm::rotate(model, glm::radians(RaptorParam[RaptorRotColaX]), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(RaptorParam[RaptorRotColaY]), glm::vec3(0.0f, 1.0f, 0.0f));
 		staticShader.setMat4("model", model);
 		RaptorCola.Draw(staticShader);
 		/*
@@ -480,17 +523,33 @@ void my_input(GLFWwindow *window, int key, int scancode, int action, int mode)
 		camera.ProcessKeyboard(RIGHT, (float)deltaTime);
 	//To Configure Model
 	if (glfwGetKey(window, GLFW_KEY_Y) == GLFW_PRESS)
-		posZ++;
+		RaptorParam[RaptorRotCuerpoY]++;
 	if (glfwGetKey(window, GLFW_KEY_H) == GLFW_PRESS)
-		posZ--;
-	if (glfwGetKey(window, GLFW_KEY_G) == GLFW_PRESS)
-		posX--;
-	if (glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS)
-		posX++;
-	if (glfwGetKey(window, GLFW_KEY_M) == GLFW_PRESS)
-		lightPosition.x++;
+		RaptorParam[RaptorRotCuerpoY]--;
 	if (glfwGetKey(window, GLFW_KEY_N) == GLFW_PRESS)
-		lightPosition.x--;
+		RaptorParam[RaptorRotCabeza]++;
+	if (glfwGetKey(window, GLFW_KEY_M) == GLFW_PRESS)
+		RaptorParam[RaptorRotCabeza]--;
+	if (glfwGetKey(window, GLFW_KEY_V) == GLFW_PRESS)
+		RaptorParam[RaptorRotMandibula]++;
+	if (glfwGetKey(window, GLFW_KEY_B) == GLFW_PRESS)
+		RaptorParam[RaptorRotMandibula]--;
+	if (glfwGetKey(window, GLFW_KEY_T) == GLFW_PRESS)
+		RaptorParam[RaptorRotBrazos]++;
+	if (glfwGetKey(window, GLFW_KEY_G) == GLFW_PRESS)
+		RaptorParam[RaptorRotBrazos]--;
+	if (glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS)
+		RaptorParam[RaptorRotPatas]++;
+	if (glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS)
+		RaptorParam[RaptorRotPatas]--;
+	if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
+		RaptorParam[RaptorRotColaY]--;
+	if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
+		RaptorParam[RaptorRotColaY]++;
+	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
+		RaptorParam[RaptorRotColaX]++;
+	if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
+		RaptorParam[RaptorRotColaX]--;
 
 	//To play KeyFrame animation 
 	if (key == GLFW_KEY_P && action == GLFW_PRESS)
